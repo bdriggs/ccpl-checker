@@ -1,5 +1,4 @@
 # CCPL-Checker
-![ccpl-checker](https://github.com/bdriggs/ccpl-checker/assets/65035792/2c890e84-8889-4ef0-9e5e-2b3f3583c0b9)
 
 A small Python application that checks for available PlayStation 5 games at the Cuyahoga County public library.
 
