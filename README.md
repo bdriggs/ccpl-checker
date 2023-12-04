@@ -5,7 +5,7 @@ A small Python application that checks for available PlayStation 5 games at the 
 
 ## How to Use
 
-1. Clone the repoository locally
+1. Clone the repository locally
 2. Install required modules: `pip install -r requirements.txt`
 3. Run the application: `python main.py`
 
