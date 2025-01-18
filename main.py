@@ -4,7 +4,6 @@ import requests
 import json
 
 url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIndex=Keyword&filter[]=format%3A%22PlayStation+5%22&filter[]=availability_toggle%3A%22global%22&sort=relevance&view=excel&searchSource=local"
-csv_file = "SearchResults.csv"
 
 
 def download_csv(url, output_filename):
@@ -20,6 +19,7 @@ def download_csv(url, output_filename):
 
 
 def main():
+    csv_file = "SearchResults.csv"
     download_csv(url, csv_file)
 
     previous_json_file = "previous_titles.json"
