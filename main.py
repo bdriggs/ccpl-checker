@@ -49,8 +49,6 @@ def main():
     with open(previous_json_file, "w") as file:
         json.dump(current_games, file, indent=4)
 
-    print(f"New games saved to: {output_json_file}")
-
     html_content = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -99,10 +97,11 @@ def main():
     </html>
     """
 
-    # Step 5: Save the HTML output
-    with open("test.html", "w") as file:
+    output_html = "new_titles.html"
+    with open(output_html, "w") as file:
         file.write(html_content)
 
+    print(f"New games saved to: {output_json_file} and {output_html}")
 
 if __name__ == "__main__":
     main()
