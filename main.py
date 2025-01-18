@@ -1,7 +1,7 @@
+from datetime import datetime
 import pandas as pd
 import requests
 import json
-from datetime import datetime
 
 csv_url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIndex=Keyword&filter[]=format%3A%22PlayStation+5%22&filter[]=availability_toggle%3A%22global%22&sort=relevance&view=excel&searchSource=local"
 csv_file = "SearchResults.csv"
