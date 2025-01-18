@@ -51,6 +51,58 @@ def main():
 
     print(f"New games saved to: {output_json_file}")
 
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New PS5 Games</title>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }}
+            ul {{
+                list-style-type: none;
+                padding: 0;
+            }}
+            li {{
+                margin: 10px 0;
+            }}
+            a {{
+                text-decoration: none;
+                color: #007bff;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }}
+            a:hover {{
+                text-decoration: underline;
+            }}
+        </style>
+    </head>
+    <body>
+        <h1>New PS5 Games</h1>
+        <p>These are the new PS5 games found since the last run:</p>
+        <ul>
+    """
+
+    for title, link in new_games.items():
+        html_content += f"""
+            <li><a href="{link}" target="_blank">{title}</a></li>
+        """
+
+    html_content += """
+        </ul>
+    </body>
+    </html>
+    """
+
+    # Step 5: Save the HTML output
+    with open("test.html", "w") as file:
+        file.write(html_content)
+
 
 if __name__ == "__main__":
     main()
