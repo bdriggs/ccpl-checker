@@ -103,5 +103,6 @@ def main():
 
     print(f"New games saved to: {output_json_file} and {output_html}")
 
+
 if __name__ == "__main__":
     main()
