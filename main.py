@@ -7,7 +7,7 @@ csv_url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIn
 csv_file = "SearchResults.csv"
 
 
-def download_csv_from_url(url, output_filename):
+def download_csv(url, output_filename):
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -20,26 +20,33 @@ def download_csv_from_url(url, output_filename):
 
 
 def main():
-    download_csv_from_url(csv_url, csv_file)
+    download_csv(csv_url, csv_file)
 
-    previous_json_file = 'previous_titles.json'
+    previous_json_file = "previous_titles.json"
     output_json_file = f'new_titles_{datetime.now().strftime("%Y%m%d")}.json'
 
     current_data = pd.read_csv(csv_file)
-    current_games = {row['Title']: row['Link'] for _, row in current_data[['Title', 'Link']].dropna().iterrows()}
+    current_games = {
+        row["Title"]: row["Link"]
+        for _, row in current_data[["Title", "Link"]].dropna().iterrows()
+    }
 
     try:
-        with open(previous_json_file, 'r') as file:
-            previous_games = json.load(file)  
+        with open(previous_json_file, "r") as file:
+            previous_games = json.load(file)
     except FileNotFoundError:
         previous_games = {}
 
-    new_games = {title: link for title, link in current_games.items() if title not in previous_games}
+    new_games = {
+        title: link
+        for title, link in current_games.items()
+        if title not in previous_games
+    }
 
-    with open(output_json_file, 'w') as file:
+    with open(output_json_file, "w") as file:
         json.dump(new_games, file, indent=4)
 
-    with open(previous_json_file, 'w') as file:
+    with open(previous_json_file, "w") as file:
         json.dump(current_games, file, indent=4)
 
     print(f"New games saved to: {output_json_file}")
