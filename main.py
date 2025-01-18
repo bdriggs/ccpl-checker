@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 
 csv_url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIndex=Keyword&filter[]=format%3A%22PlayStation+5%22&filter[]=availability_toggle%3A%22available%22&sort=relevance&view=excel&searchSource=local"
-csv_path = "SearchResults.csv"
+csv_file = "SearchResults.csv"
 
 
 def download_csv_from_url(url, output_filename):
@@ -20,9 +20,8 @@ def download_csv_from_url(url, output_filename):
 
 
 def main():
-    download_csv_from_url(csv_url, csv_path)
+    download_csv_from_url(csv_url, csv_file)
 
-    csv_file = 'SearchResults.csv'  
     previous_json_file = 'previous_titles.json'
     output_json_file = f'new_titles_{datetime.now().strftime("%Y%m%d")}.json'
 
