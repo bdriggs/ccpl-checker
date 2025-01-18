@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import json
 
-csv_url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIndex=Keyword&filter[]=format%3A%22PlayStation+5%22&filter[]=availability_toggle%3A%22global%22&sort=relevance&view=excel&searchSource=local"
+url = "https://discover.cuyahogalibrary.org/Search/Results?lookfor=&searchIndex=Keyword&filter[]=format%3A%22PlayStation+5%22&filter[]=availability_toggle%3A%22global%22&sort=relevance&view=excel&searchSource=local"
 csv_file = "SearchResults.csv"
 
 
@@ -20,7 +20,7 @@ def download_csv(url, output_filename):
 
 
 def main():
-    download_csv(csv_url, csv_file)
+    download_csv(url, csv_file)
 
     previous_json_file = "previous_titles.json"
     output_json_file = f'new_titles_{datetime.now().strftime("%Y%m%d")}.json'
